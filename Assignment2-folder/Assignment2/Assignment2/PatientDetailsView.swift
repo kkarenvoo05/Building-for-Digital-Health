@@ -29,6 +29,7 @@ struct PatientDetailsView: View {
                     ForEach(patient.activeMedication) { medication in
                         VStack(alignment: .leading) {
                             Text(medication.name).font(.headline)
+                            Text("\(medication.dose.fullDescription) - \(medication.route)")
                             Text("Frequency: \(medication.frequency) times a day").font(.caption)
                         }
                     }

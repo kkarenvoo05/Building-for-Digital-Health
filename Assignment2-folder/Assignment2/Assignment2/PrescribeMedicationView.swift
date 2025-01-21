@@ -13,7 +13,7 @@ struct PrescribeMedicationView: View {
     @State private var name = ""
     @State private var dosageValue = ""
     @State private var dosageUnit = DosageUnit.mg
-    @State private var route = ""
+    @State private var route = MedicationRoute.oral
     @State private var frequency = ""
     @State private var duration = ""
     @State private var error: MedicationError?
@@ -42,6 +42,12 @@ struct PrescribeMedicationView: View {
                             }
                         }
                     }
+                    Picker("Route", selection: $route) {
+                        ForEach(MedicationRoute.allCases, id: \.self) { route in
+                            Text(route.rawValue).tag(route)
+                        }
+                    }
+
                     TextField("Frequency", text: $frequency).keyboardType(.numberPad)
                     TextField("Duration (days)", text: $duration).keyboardType(.numberPad)
                 }

@@ -11,7 +11,7 @@ struct Medication: Equatable, Identifiable {
     let name: String
     let datePrescribed: Date
     let dose: Dosage
-    let route: String
+    let route: MedicationRoute
     let frequency: Int
     let duration: Int
     
@@ -23,7 +23,7 @@ struct Medication: Equatable, Identifiable {
         Date.now <= expiration
     }
     
-    init(id: UUID = UUID(), name: String, datePrescribed: Date, dose: Dosage, route: String, frequency: Int, duration: Int) {
+    init(id: UUID = UUID(), name: String, datePrescribed: Date, dose: Dosage, route: MedicationRoute, frequency: Int, duration: Int) {
         self.id = id
         self.name = name
         self.datePrescribed = datePrescribed
